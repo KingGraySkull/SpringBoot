@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html  lang = "en" xmlns:th="http://www.thymeleaf.org">
+     
+<head>
+	<meta charset = "utf-8" />
+    <meta name = "viewport" content = "width = device-width,initial-scale = 1.0">
+    <title>Home</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/materialize.css}" media = "all">
+</head>
+
+<body>
+	<header>
+        <h1>Welcome Page</h1>
+    </header>
+
+	<div class = "container" th:if = "${registrationMessage}">
+		<h4>Registered successfully!</h4>
+	</div>
+	
+	<script th:src = "@{/js/materialize.js}"></script>
+</body>
+      
+</html>

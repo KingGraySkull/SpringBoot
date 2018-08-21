@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  lang = "en" xmlns:th="http://www.thymeleaf.org">
+     
+<head>
+	<meta charset = "utf-8" />
+    <meta name = "viewport" content = "width = device-width,initial-scale = 1.0">
+    <title>Home</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/materialize.css}" media = "all">
+</head>
+
+<body>
+	<header class = "container">
+		<h1>sign in</h1>
+	</header>
+	
+	<main>
+		<section class = "container">
+			<div class = "row">
+				<form th:method = "post" th:action = "@{/user/signin}">
+					<div class = "row">
+						<div class = "input-field col s12 m12 l12">
+          					<input id = "email" name = "userEmail" type = "email" class = "validate">
+         					<label for = "email">Email</label>
+        				</div>
+        				<div class = "input-field col s12 m12 l12">
+          					<input id = "password" name = "userPassword" type = "password" class = "validate">
+         					<label for = "email">Password</label>
+        				</div>
+        				<div class = "center-align">
+							<button class = "btn waves-effect waves-light" type = "submit" name = "signin">Sign in
+							<i class = "material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<div class = "container" th:if = "${loginError}">
+					<p th:text = "${loginError}"></p>
+				</div>
+			</div>
+		</section>
+	</main>
+	<script th:src = "@{/js/materialize.js}"></script>
+</body>
+      
+</html>

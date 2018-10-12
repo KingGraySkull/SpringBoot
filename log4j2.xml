@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="FILE" fileName="D:/Data/hungama-sqs.log">
+            <PatternLayout pattern="%d %p %c: %m%n" />
+        </File>
+
+        <RollingFile 
+        	name="ROLLING" 
+        	fileName="${fileName}"
+        	filePattern="d:/Data/hungama-sqs-%d{dd-MM-yyyy}-%i.log.gz">
+            <PatternLayout>
+            	 <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval = '1' modulate="true"/>
+                <SizeBasedTriggeringPolicy size="250MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="FILE" />
+            <AppenderRef ref="ROLLING" />
+        </Root>
+    </Loggers>
+</Configuration>
